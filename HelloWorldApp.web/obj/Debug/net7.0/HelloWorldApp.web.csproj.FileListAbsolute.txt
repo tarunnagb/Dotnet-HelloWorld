@@ -1,0 +1,62 @@
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\bin\Debug\net7.0\appsettings.json
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\bin\Debug\net7.0\HelloWorldApp.web.staticwebassets.runtime.json
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\bin\Debug\net7.0\HelloWorldApp.web.exe
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\bin\Debug\net7.0\HelloWorldApp.web.deps.json
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\bin\Debug\net7.0\HelloWorldApp.web.runtimeconfig.json
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\bin\Debug\net7.0\HelloWorldApp.web.dll
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\bin\Debug\net7.0\HelloWorldApp.web.pdb
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.csproj.AssemblyReference.cache
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.AssemblyInfoInputs.cache
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.AssemblyInfo.cs
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.csproj.CoreCompileInputs.cache
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.RazorAssemblyInfo.cache
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.RazorAssemblyInfo.cs
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\staticwebassets\msbuild.HelloWorldApp.web.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\staticwebassets\msbuild.build.HelloWorldApp.web.props
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.HelloWorldApp.web.props
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.HelloWorldApp.web.props
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\scopedcss\bundle\HelloWorldApp.web.styles.css
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\scopedcss\projectbundle\HelloWorldApp.web.bundle.scp.css
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.dll
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\refint\HelloWorldApp.web.dll
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.pdb
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.genruntimeconfig.cache
+C:\Users\Aman\Desktop\dotnet\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\ref\HelloWorldApp.web.dll
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\bin\Debug\net7.0\appsettings.json
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\bin\Debug\net7.0\HelloWorldApp.web.staticwebassets.runtime.json
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\bin\Debug\net7.0\HelloWorldApp.web.exe
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\bin\Debug\net7.0\HelloWorldApp.web.deps.json
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\bin\Debug\net7.0\HelloWorldApp.web.runtimeconfig.json
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\bin\Debug\net7.0\HelloWorldApp.web.dll
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\bin\Debug\net7.0\HelloWorldApp.web.pdb
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.csproj.AssemblyReference.cache
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.AssemblyInfoInputs.cache
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.AssemblyInfo.cs
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.csproj.CoreCompileInputs.cache
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.RazorAssemblyInfo.cache
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.RazorAssemblyInfo.cs
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\staticwebassets\msbuild.HelloWorldApp.web.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\staticwebassets\msbuild.build.HelloWorldApp.web.props
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.HelloWorldApp.web.props
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.HelloWorldApp.web.props
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\scopedcss\bundle\HelloWorldApp.web.styles.css
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\scopedcss\projectbundle\HelloWorldApp.web.bundle.scp.css
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.dll
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\refint\HelloWorldApp.web.dll
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.pdb
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\HelloWorldApp.web.genruntimeconfig.cache
+C:\Users\Aman\Documents\Dotnet 13-12-22\HelloWorldApp\HelloWorldApp.web\obj\Debug\net7.0\ref\HelloWorldApp.web.dll
