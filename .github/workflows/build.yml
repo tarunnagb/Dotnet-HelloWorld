@@ -51,7 +51,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ inputs.AWS_REGION }}
 
-      - name: Login to Amazon ECR & Prepare Env
+      - name: Login to Amazon ECR
         run: |
           AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
           ECR_REPO="my-service-${{ inputs.environment }}"
