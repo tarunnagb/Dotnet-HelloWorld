@@ -14,4 +14,6 @@ RUN dotnet publish -c Release -o /WebApp --no-restore
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /WebApp
 COPY --from=build /WebApp ./
+
+EXPOSE 5004
 CMD ["dotnet", "SampleWebApp.dll"]
