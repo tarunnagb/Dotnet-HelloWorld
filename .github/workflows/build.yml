@@ -30,11 +30,6 @@ on:
         description: "Dockerfile path"
         default: Dockerfile
         type: string
-        
-      isDockerImagePush:
-        description: "Whether to push the Docker image to ECR"
-        default: true
-        type: boolean
 
 jobs:
   build-and-push:
@@ -70,6 +65,5 @@ jobs:
             -t $ECR_URI:${{ inputs.image_tag }} .
 
       - name: Push Docker image to ECR
-        if: ${{ inputs.isDockerImagePush == 'true' }}
         run: |
           docker push $ECR_URI:${{ inputs.image_tag }}
