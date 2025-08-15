@@ -1,38 +1,75 @@
-name: CI - Build and Push IIS Docker Image
+name: Build & Push to image ECR
+run-name: dot-net-build-image-${{ inputs.AWS_REGION }}-${{ inputs.environment }}
 
 on:
   workflow_dispatch:
     inputs:
+      AWS_REGION:
+        description: "AWS region"
+        required: true
+        type: string
+        default: "us-east-1"
+        options:
+          - us-east-1
+          - eu-central-1
+      environment:
+        description: "Deployment environment"
+        required: true
+        type: string
+        default: "dev"
+        options:
+         - dev
+         - qa
+
       image_tag:
         description: "Docker image tag"
         required: true
         type: string
 
-env:
-  AWS_REGION: ap-south-1
-  ECR_REPOSITORY: helloworldapp
+      dockerfilePath:
+        description: "Dockerfile path"
+        default: Dockerfile
+        type: string
+        
+      isDockerImagePush:
+        description: "Whether to push the Docker image to ECR"
+        default: true
+        type: boolean
 
 jobs:
   build-and-push:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Login to ECR
-        uses: aws-actions/amazon-ecr-login@v2
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          region: ${{ env.AWS_REGION }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ inputs.AWS_REGION }}
+
+      - name: Login to Amazon ECR & Prepare Env
+        run: |
+          AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+          ECR_REPO="my-service-${{ inputs.environment }}"
+          ECR_URI="$AWS_ACCOUNT_ID.dkr.ecr.${{ inputs.AWS_REGION }}.amazonaws.com/$ECR_REPO"
+
+          echo "AWS_ACCOUNT_ID=$AWS_ACCOUNT_ID" >> $GITHUB_ENV
+          echo "ECR_REPO=$ECR_REPO" >> $GITHUB_ENV
+          echo "ECR_URI=$ECR_URI" >> $GITHUB_ENV
+
+          aws ecr get-login-password --region ${{ inputs.AWS_REGION }} \
+            | docker login --username AWS --password-stdin "$AWS_ACCOUNT_ID.dkr.ecr.${{ inputs.AWS_REGION }}.amazonaws.com"
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ env.ECR_REPOSITORY }}:${{ github.event.inputs.image_tag }} .
+          docker build -f ${{ inputs.dockerfilePath }} \
+            -t $ECR_URI:${{ inputs.image_tag }} .
 
-      - name: Tag image for ECR
+      - name: Push Docker image to ECR
+        if: ${{ inputs.isDockerImagePush == 'true' }}
         run: |
-          docker tag ${{ env.ECR_REPOSITORY }}:${{ github.event.inputs.image_tag }} ${ACCOUNT_ID}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:${{ github.event.inputs.image_tag }}
-
-      - name: Push to ECR
-        run: |
-          docker push ${ACCOUNT_ID}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:${{ github.event.inputs.image_tag }}
+          docker push $ECR_URI:${{ inputs.image_tag }}
