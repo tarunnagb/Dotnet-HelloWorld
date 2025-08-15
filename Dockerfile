@@ -1,19 +1,20 @@
 # Stage 1: Build
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-WORKDIR /app
+WORKDIR /src
 
-# Copy csproj and restore
-COPY SampleWebApp/*.csproj ./
-RUN dotnet restore
+COPY HelloWorldApp.sln ./
+COPY HelloWorldApp.web/*.csproj HelloWorldApp.web/
 
-# Copy source and publish
-COPY SampleWebApp/. ./
-RUN dotnet publish -c Release -o /WebApp --no-restore
+RUN dotnet restore HelloWorldApp.sln
+
+COPY HelloWorldApp.web/ HelloWorldApp.web/
+
+RUN dotnet publish HelloWorldApp.web/HelloWorldApp.web.csproj -c Release -o /app/publish --no-restore
 
 # Stage 2: Runtime
-FROM mcr.microsoft.com/dotnet/aspnet:5.0
-WORKDIR /WebApp
-COPY --from=build /WebApp ./
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS runtime
+WORKDIR /app
+COPY --from=build /app/publish .
 
 EXPOSE 5004
-CMD ["dotnet", "SampleWebApp.dll"]
+ENTRYPOINT ["dotnet", "HelloWorldApp.web.dll"]
