@@ -1,0 +1,38 @@
+name: CI - Build and Push IIS Docker Image
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: "Docker image tag"
+        required: true
+        type: string
+
+env:
+  AWS_REGION: ap-south-1
+  ECR_REPOSITORY: helloworldapp
+
+jobs:
+  build-and-push:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to ECR
+        uses: aws-actions/amazon-ecr-login@v2
+        with:
+          region: ${{ env.AWS_REGION }}
+
+      - name: Build Docker image
+        run: |
+          docker build -t ${{ env.ECR_REPOSITORY }}:${{ github.event.inputs.image_tag }} .
+
+      - name: Tag image for ECR
+        run: |
+          docker tag ${{ env.ECR_REPOSITORY }}:${{ github.event.inputs.image_tag }} ${ACCOUNT_ID}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:${{ github.event.inputs.image_tag }}
+
+      - name: Push to ECR
+        run: |
+          docker push ${ACCOUNT_ID}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:${{ github.event.inputs.image_tag }}
