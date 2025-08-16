@@ -39,25 +39,24 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Configure AWS credentials
+      - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ inputs.AWS_REGION }}
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ inputs.region }}
+          role-skip-session-tagging: true
+          role-duration-seconds: 1200
 
       - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Set ECR repository name and URI
+        id: ecr
         run: |
-          AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
-          ECR_REPO="my-service-${{ inputs.environment }}"
-          ECR_URI="$AWS_ACCOUNT_ID.dkr.ecr.${{ inputs.AWS_REGION }}.amazonaws.com/$ECR_REPO"
-
-          echo "AWS_ACCOUNT_ID=$AWS_ACCOUNT_ID" >> $GITHUB_ENV
-          echo "ECR_REPO=$ECR_REPO" >> $GITHUB_ENV
-          echo "ECR_URI=$ECR_URI" >> $GITHUB_ENV
-
-          aws ecr get-login-password --region ${{ inputs.AWS_REGION }} \
-            | docker login --username AWS --password-stdin "$AWS_ACCOUNT_ID.dkr.ecr.${{ inputs.AWS_REGION }}.amazonaws.com"
+          REPO_NAME="my-service-${{ inputs.environment }}"
+          echo "ECR_REPO=$REPO_NAME" >> $GITHUB_ENV
+          echo "ECR_URI=${{ steps.login-ecr.outputs.registry }}/$REPO_NAME" >> $GITHUB_ENV
 
       - name: Build Docker image
         run: |
