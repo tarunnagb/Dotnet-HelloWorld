@@ -80,5 +80,4 @@ jobs:
         run: |
           cd helm-dotnet
           helm upgrade --install my-service-${{ inputs.environment }} . \
-            --set image.repository=$ECR_URI \
             --set image.tag=${{ inputs.image_tag }}
