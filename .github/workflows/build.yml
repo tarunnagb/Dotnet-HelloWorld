@@ -7,7 +7,7 @@ on:
       AWS_REGION:
         description: "AWS region"
         required: true
-        type: string
+        type: choice
         default: "us-east-1"
         options:
           - us-east-1
@@ -15,7 +15,7 @@ on:
       environment:
         description: "environment"
         required: true
-        type: string
+        type: choice
         default: "dev"
         options:
           - dev
