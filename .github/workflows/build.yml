@@ -4,7 +4,7 @@ run-name: dot-net-build-image-${{ inputs.AWS_REGION }}-${{ inputs.environment }}
 on:
   workflow_dispatch:
     inputs:
-      AWS_REGION:
+      region:
         description: "AWS region"
         required: true
         type: choice
