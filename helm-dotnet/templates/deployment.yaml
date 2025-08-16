@@ -4,14 +4,14 @@ metadata:
   name: {{ .Values.deploymentname }}
   namespace: {{ .Values.namespace }}
   labels:
-    {{- include "maven-helm.labels" . | nindent 4 }}
+    {{- include "dotnet-helm.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "maven-helm.selectorLabels" . | nindent 6 }}
+      {{- include "dotnet-helm.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -19,7 +19,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "maven-helm.labels" . | nindent 8 }}
+        {{- include "dotnet-helm.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -72,4 +72,3 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-
