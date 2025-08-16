@@ -79,5 +79,5 @@ jobs:
       - name: Deploy with Helm to Minikube
         run: |
           cd helm-dotnet
-          helm upgrade --install dotnet-release -n  . \
+          helm upgrade --install dotnet-release . \
             --set image.tag=${{ inputs.image_tag }}
