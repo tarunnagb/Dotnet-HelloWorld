@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.svcname }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "maven-helm.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 8080
+      protocol: TCP
+      name: http
+      {{- if eq .Values.service.type "NodePort" }}
+      nodePort: 30400
+      {{- end }}
+  selector:
+    {{- include "maven-helm.selectorLabels" . | nindent 4 }}
