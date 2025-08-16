@@ -13,13 +13,13 @@ on:
           - us-east-1
           - eu-central-1
       environment:
-        description: "Deployment environment"
+        description: "environment"
         required: true
         type: string
         default: "dev"
         options:
-         - dev
-         - qa
+          - dev
+          - qa
 
       image_tag:
         description: "Docker image tag"
