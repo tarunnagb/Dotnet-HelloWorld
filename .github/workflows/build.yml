@@ -30,17 +30,22 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: [self-hosted, Linux, X64]
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          region: ${{ inputs.region }}
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ inputs.region }}
+          role-skip-session-tagging: true
+          role-duration-seconds: 1200
 
       - name: Set ECR repository name and URI
         id: ecr
