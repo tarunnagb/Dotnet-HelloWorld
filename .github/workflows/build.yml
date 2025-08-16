@@ -39,6 +39,8 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
+        with:
+          region: ${{ inputs.region }}
 
       - name: Set ECR repository name and URI
         id: ecr
