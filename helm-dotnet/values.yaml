@@ -1,4 +1,4 @@
-# Default values for maven.
+# Default values for dotnet-app.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -11,14 +11,21 @@ image:
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "2"
+  tag: "4"
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
-imagePullSecrets: []
+imagePullSecrets:
+  - name: ecr-secret
 # This is to override the chart name.
 nameOverride: ""
 fullnameOverride: ""
 
+service:
+  type: NodePort
+  port: 80
+  targetPort: 80
+
+namespace: "dotnetns"
 # This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
 serviceAccount:
   # Specifies whether a service account should be created
@@ -40,7 +47,6 @@ podLabels: {}
 
 podSecurityContext: {}
   # fsGroup: 2000
-#namespace: mobackns
 
 securityContext: {}
   # capabilities:
@@ -51,79 +57,67 @@ securityContext: {}
   # runAsUser: 1000
 
 # This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
-service:
-  # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
-  type: NodePort
-  # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
-  port: 80
-  containerport: 5004
+#service:
+# This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-servic # #  type: ClusterIP
+# This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
+# port: 80
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
   enabled: false
-  className: "alb"
-  nameOverride: "alb-ingress"
-  annotations: 
+  className: ""
+  annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    #alb.ingress.kubernetes.io/subnets: subnet-039dbd0b12ccc6de7,subnet-0bbd800827716ea98
-    alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/backend-protocol: HTTP
   hosts:
-    - host: 
+    - host: chart-example.local
       paths:
-        - path: /maven-web-application
-          pathType: Prefix
-          backend:
-            service:
-              name: mavensvc
-              port: 80 
+        - path: /
+          pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
 
 resources: {}
-    
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  #limits:
-  #  cpu: 100m
-  #  memory: 128Mi
-  #requests:
-  #  cpu: 100m
-  #  memory: 128Mi
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
 
 # This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
 livenessProbe:
   httpGet:
     path: /
-    port: 5004
+    port: 80
+  initialDelaySeconds: 10   # wait 10s before first check
+  periodSeconds: 10
+  timeoutSeconds: 1
+  failureThreshold: 3
+
 readinessProbe:
   httpGet:
     path: /
-    port: 5004
+    port: 80
+  initialDelaySeconds: 5    # wait 5s before first check
+  periodSeconds: 10
+  timeoutSeconds: 1
+  failureThreshold: 3
 
 # This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
 autoscaling:
   enabled: false
-  minReplicas: 2
-  maxReplicas: 5
+  minReplicas: 1
+  maxReplicas: 100
   targetCPUUtilizationPercentage: 80
-  targetMemoryUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
 
-deploymentname: dotnetdeployment
-
-hpadeploymentname: dotnethpa
-
-svcname: dotnetsvc
-
-namespace: dotnetns
-
-forwardport: 80
 # Additional volumes on the output Deployment definition.
 volumes: []
 # - name: foo
@@ -137,10 +131,7 @@ volumeMounts: []
 #   mountPath: "/etc/foo"
 #   readOnly: true
 
-#ecrSecret:
-#  name: "ecr-secret"
-#  namespace: "mobackns"
-#nodeSelector: {}
+nodeSelector: {}
 
 tolerations: []
 
