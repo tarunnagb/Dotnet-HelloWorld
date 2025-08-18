@@ -16,5 +16,5 @@ FROM mcr.microsoft.com/dotnet/aspnet:7.0 as runtime
 WORKDIR /app
 COPY --from=build /app/publish .
 
-EXPOSE 5004
+EXPOSE 80
 ENTRYPOINT ["dotnet", "HelloWorldApp.web.dll"]
